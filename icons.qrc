@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/toolbar">
+        <file>icons/icons8-save-24.png</file>
+    </qresource>
+</RCC>
