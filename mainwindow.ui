@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>KEtcHosts</string>
+   <string>qEtcHosts</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/toolbar/icons/icon.svg</normaloff>:/toolbar/icons/icon.svg</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -95,8 +99,35 @@
      <string>&amp;File</string>
     </property>
     <addaction name="action_Save"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About"/>
+   </widget>
+   <widget class="QMenu" name="menu_Edit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionAdd_Template"/>
+    <addaction name="actionRemove_Template"/>
+    <addaction name="separator"/>
+    <addaction name="actionMove_Up"/>
+    <addaction name="actionMove_Down"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>&amp;Tools</string>
+    </property>
+    <addaction name="actionSettings"/>
    </widget>
    <addaction name="menu_File"/>
+   <addaction name="menu_Edit"/>
+   <addaction name="menuTools"/>
+   <addaction name="menu_Help"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -106,6 +137,15 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_Save"/>
+   <addaction name="separator"/>
+   <addaction name="actionAdd_Template"/>
+   <addaction name="actionRemove_Template"/>
+   <addaction name="actionMove_Up"/>
+   <addaction name="actionMove_Down"/>
+   <addaction name="separator"/>
+   <addaction name="actionSettings"/>
+   <addaction name="separator"/>
+   <addaction name="action_About"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Save">
@@ -121,6 +161,105 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/toolbar/icons/icons8-about-24.png</normaloff>:/toolbar/icons/icons8-about-24.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="toolTip">
+    <string>About this software</string>
+   </property>
+  </action>
+  <action name="actionAdd_Template">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/toolbar/icons/icons8-list-view-24.png</normaloff>:/toolbar/icons/icons8-list-view-24.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Template</string>
+   </property>
+   <property name="toolTip">
+    <string>Add new hosts template</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionRemove_Template">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/toolbar/icons/icons8-list-remove-24.png</normaloff>:/toolbar/icons/icons8-list-remove-24.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove Template</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove current selected hosts template</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actionMove_Up">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/toolbar/icons/icons8-thick-arrow-pointing-up-24.png</normaloff>:/toolbar/icons/icons8-thick-arrow-pointing-up-24.png</iconset>
+   </property>
+   <property name="text">
+    <string>Move Up</string>
+   </property>
+   <property name="toolTip">
+    <string>Move up current selected hosts template</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Up</string>
+   </property>
+  </action>
+  <action name="actionMove_Down">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/toolbar/icons/icons8-thick-arrow-pointing-down-24.png</normaloff>:/toolbar/icons/icons8-thick-arrow-pointing-down-24.png</iconset>
+   </property>
+   <property name="text">
+    <string>Move Down</string>
+   </property>
+   <property name="toolTip">
+    <string>Move down current selected hosts template</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Down</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/toolbar/icons/icons8-exit-24.png</normaloff>:/toolbar/icons/icons8-exit-24.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit from application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/toolbar/icons/icons8-settings-24.png</normaloff>:/toolbar/icons/icons8-settings-24.png</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>Open setting window</string>
    </property>
   </action>
  </widget>

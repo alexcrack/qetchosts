@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "consts.h"
+#include "aboutdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -85,4 +86,16 @@ void MainWindow::hostsSelectionChanged(const QItemSelection &selected, const QIt
 void MainWindow::on_action_Save_triggered()
 {
     model->save();
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    close();
+}
+
+void MainWindow::on_action_About_triggered()
+{
+    AboutDialog *about = new AboutDialog(this);
+
+    about->show();
 }
