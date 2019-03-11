@@ -1,5 +1,30 @@
 <RCC>
     <qresource prefix="/toolbar">
         <file>icons/icons8-save-24.png</file>
+        <file>icons/icons8-about-16.png</file>
+        <file>icons/icons8-about-24.png</file>
+        <file>icons/icons8-about-48.png</file>
+        <file>icons/icons8-exit-16.png</file>
+        <file>icons/icons8-exit-24.png</file>
+        <file>icons/icons8-exit-48.png</file>
+        <file>icons/icons8-list-remove-16.png</file>
+        <file>icons/icons8-list-remove-24.png</file>
+        <file>icons/icons8-list-remove-48.png</file>
+        <file>icons/icons8-list-view-16.png</file>
+        <file>icons/icons8-list-view-24.png</file>
+        <file>icons/icons8-list-view-48.png</file>
+        <file>icons/icons8-save-16.png</file>
+        <file>icons/icons8-save-48.png</file>
+        <file>icons/icons8-settings-16.png</file>
+        <file>icons/icons8-settings-24.png</file>
+        <file>icons/icons8-settings-48.png</file>
+        <file>icons/icons8-thick-arrow-pointing-down-16.png</file>
+        <file>icons/icons8-thick-arrow-pointing-down-24.png</file>
+        <file>icons/icons8-thick-arrow-pointing-down-48.png</file>
+        <file>icons/icons8-thick-arrow-pointing-up-16.png</file>
+        <file>icons/icons8-thick-arrow-pointing-up-24.png</file>
+        <file>icons/icons8-thick-arrow-pointing-up-48.png</file>
+        <file>icons/icon_active.svg</file>
+        <file>icons/icon.svg</file>
     </qresource>
 </RCC>
