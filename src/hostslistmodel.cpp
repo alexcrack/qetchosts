@@ -50,8 +50,16 @@ QVariant HostsListModel::data(const QModelIndex &index, int role) const
         return hostItems->at(i)->data(index.column());
     }
 
-    if (role == Qt::StatusTipRole || role == Qt::ToolTipRole) {
+    if (role == Qt::ToolTipRole) {
         return hostItems->at(i)->data(HostsListItem::Field::Description);
+    }
+
+    if (role == Qt::StatusTipRole) {
+        HostsListItem *item = hostItems->at(i);
+
+        return QString("%1. Created at %2")
+                .arg(item->description)
+                .arg(item->added.toString());
     }
 
     if(role == Qt::CheckStateRole) {

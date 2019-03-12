@@ -8,6 +8,7 @@
 #include <QRegularExpression>
 #include <QDateTime>
 #include <QIcon>
+#include <QString>
 
 #include "hostslistitem.h"
 
