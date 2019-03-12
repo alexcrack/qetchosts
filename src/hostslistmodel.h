@@ -31,6 +31,8 @@ public:
     bool removeTemplateItem(QModelIndex &index);
     bool addTemplateItem(HostsListItem *item);
 
+    QModelIndex moveTemplateItem(QModelIndex &index, bool isMoveUp);
+
     Qt::ItemFlags flags(const QModelIndex& index) const override;
 
     void parse();

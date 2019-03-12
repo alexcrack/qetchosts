@@ -83,6 +83,8 @@ bool HostsListModel::removeTemplateItem(QModelIndex &index)
     hostItems->remove(index.row());
 
     endRemoveRows();
+
+    return true;
 }
 
 bool HostsListModel::addTemplateItem(HostsListItem *item)
@@ -94,6 +96,26 @@ bool HostsListModel::addTemplateItem(HostsListItem *item)
     hostItems->push_back(item);
 
     endInsertRows();
+
+    return true;
+}
+
+QModelIndex HostsListModel::moveTemplateItem(QModelIndex &index, bool isMoveUp)
+{
+    int currentRow = index.row();
+    int destinationRow = isMoveUp ? currentRow - 1 : currentRow + 1;
+
+    if (destinationRow >= 0 && destinationRow < hostItems->size()) {
+        beginMoveRows(index, currentRow, currentRow, index, isMoveUp ? destinationRow : destinationRow + 1);
+
+        hostItems->move(currentRow, destinationRow);
+
+        endMoveRows();
+
+        return this->index(destinationRow, HostsListItem::Field::Name);
+    }
+
+    return index;
 }
 
 Qt::ItemFlags HostsListModel::flags(const QModelIndex &index) const

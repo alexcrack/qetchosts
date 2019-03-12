@@ -122,19 +122,26 @@ void MainWindow::on_actionAdd_Template_triggered()
     addDialog->setItem(newItem);
 
     if (addDialog->exec() == QDialog::Accepted) {
-        qDebug() << "New ITEM" << newItem;
         model->addTemplateItem(newItem);
     }
 }
 
 void MainWindow::on_actionMove_Up_triggered()
 {
+    QModelIndex index = ui->hostGroupsListView->selectionModel()->currentIndex();
 
+    QModelIndex newIndex = model->moveTemplateItem(index, true);
+
+    ui->hostGroupsListView->selectionModel()->setCurrentIndex(newIndex, QItemSelectionModel::SelectCurrent);
 }
 
 void MainWindow::on_actionMove_Down_triggered()
 {
+    QModelIndex index = ui->hostGroupsListView->selectionModel()->currentIndex();
 
+    QModelIndex newIndex = model->moveTemplateItem(index, false);
+
+    ui->hostGroupsListView->selectionModel()->setCurrentIndex(newIndex, QItemSelectionModel::SelectCurrent);
 }
 
 void MainWindow::on_actionRemove_Template_triggered()
