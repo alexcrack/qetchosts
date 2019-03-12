@@ -27,4 +27,7 @@
         <file>icons/icon_active.svg</file>
         <file>icons/icon.svg</file>
     </qresource>
+    <qresource prefix="/items">
+        <file>icons/icons8-list-view-item-16.png</file>
+    </qresource>
 </RCC>
