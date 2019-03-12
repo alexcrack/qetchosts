@@ -29,6 +29,14 @@ private slots:
 
     void on_action_About_triggered();
 
+    void on_actionAdd_Template_triggered();
+
+    void on_actionMove_Up_triggered();
+
+    void on_actionMove_Down_triggered();
+
+    void on_actionRemove_Template_triggered();
+
 private:
     Ui::MainWindow *ui;
 
@@ -40,6 +48,7 @@ private:
     QDataWidgetMapper *hostsMapper;
 
     void setupWindow();
+    void setupTemplateListActions();
     void saveWindow();
     void setupEditor();
     void setupHosts();

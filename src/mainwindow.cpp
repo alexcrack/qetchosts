@@ -1,7 +1,10 @@
+#include <QDebug>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "consts.h"
 #include "aboutdialog.h"
+#include "adddialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     setupWindow();
+    setupTemplateListActions();
     setupEditor();
     setupHosts();
 }
@@ -38,6 +42,15 @@ void MainWindow::setupWindow()
     move(settings->value("pos", QPoint(10, 10)).toPoint());
     ui->splitter->restoreState(settings->value("splitter").toByteArray());
     settings->endGroup();
+}
+
+void MainWindow::setupTemplateListActions()
+{
+    ui->hostGroupsListView->addAction(ui->actionAdd_Template);
+    ui->hostGroupsListView->addAction(ui->actionMove_Up);
+    ui->hostGroupsListView->addAction(ui->actionMove_Down);
+    ui->hostGroupsListView->addAction(ui->actionRemove_Template);
+    ui->hostGroupsListView->setContextMenuPolicy(Qt::ActionsContextMenu);
 }
 
 void MainWindow::saveWindow()
@@ -98,4 +111,35 @@ void MainWindow::on_action_About_triggered()
     AboutDialog *about = new AboutDialog(this);
 
     about->show();
+}
+
+void MainWindow::on_actionAdd_Template_triggered()
+{
+    AddDialog *addDialog = new AddDialog(this);
+    addDialog->setWindowTitle(ui->actionAdd_Template->toolTip());
+
+    HostsListItem *newItem = new HostsListItem();
+    addDialog->setItem(newItem);
+
+    if (addDialog->exec() == QDialog::Accepted) {
+        qDebug() << "New ITEM" << newItem;
+        model->addTemplateItem(newItem);
+    }
+}
+
+void MainWindow::on_actionMove_Up_triggered()
+{
+
+}
+
+void MainWindow::on_actionMove_Down_triggered()
+{
+
+}
+
+void MainWindow::on_actionRemove_Template_triggered()
+{
+    QModelIndex index = ui->hostGroupsListView->selectionModel()->currentIndex();
+
+    model->removeTemplateItem(index);
 }

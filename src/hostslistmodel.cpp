@@ -1,4 +1,5 @@
 #include "hostslistmodel.h"
+
 #include <QDebug>
 
 HostsListModel::HostsListModel(QObject *parent)
@@ -41,8 +42,16 @@ QVariant HostsListModel::data(const QModelIndex &index, int role) const
         return QSize(24, 24);
     }
 
+    if (role == Qt::DecorationRole) {
+        return QIcon(":/items/icons/icons8-list-view-item-16.png");
+    }
+
     if (role == Qt::EditRole) {
         return hostItems->at(i)->data(index.column());
+    }
+
+    if (role == Qt::StatusTipRole || role == Qt::ToolTipRole) {
+        return hostItems->at(i)->data(HostsListItem::Field::Description);
     }
 
     if(role == Qt::CheckStateRole) {
@@ -65,6 +74,26 @@ bool HostsListModel::setData(const QModelIndex &index, const QVariant &value, in
     }
 
     return false;
+}
+
+bool HostsListModel::removeTemplateItem(QModelIndex &index)
+{
+    beginRemoveRows(index, index.row(), index.row());
+
+    hostItems->remove(index.row());
+
+    endRemoveRows();
+}
+
+bool HostsListModel::addTemplateItem(HostsListItem *item)
+{
+    item->added = QDateTime::currentDateTime();
+
+    beginInsertRows(QModelIndex(), 1, 1);
+
+    hostItems->push_back(item);
+
+    endInsertRows();
 }
 
 Qt::ItemFlags HostsListModel::flags(const QModelIndex &index) const

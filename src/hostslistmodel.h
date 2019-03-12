@@ -6,6 +6,8 @@
 #include <QSize>
 #include <QFile>
 #include <QRegularExpression>
+#include <QDateTime>
+#include <QIcon>
 
 #include "hostslistitem.h"
 
@@ -25,6 +27,9 @@ public:
     // Editable:
     bool setData(const QModelIndex &index, const QVariant &value,
                  int role = Qt::EditRole) override;
+
+    bool removeTemplateItem(QModelIndex &index);
+    bool addTemplateItem(HostsListItem *item);
 
     Qt::ItemFlags flags(const QModelIndex& index) const override;
 

@@ -31,7 +31,8 @@ SOURCES += \
     settingsdialog.cpp \
     hostslistitem.cpp \
     hostslistmodel.cpp \
-    aboutdialog.cpp
+    aboutdialog.cpp \
+    adddialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,12 +41,14 @@ HEADERS += \
     hostslistitem.h \
     hostslistmodel.h \
     consts.h \
-    aboutdialog.h
+    aboutdialog.h \
+    adddialog.h
 
 FORMS += \
         mainwindow.ui \
     settingsdialog.ui \
-    aboutdialog.ui
+    aboutdialog.ui \
+    adddialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
