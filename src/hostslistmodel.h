@@ -30,7 +30,7 @@ public:
                  int role = Qt::EditRole) override;
 
     bool removeTemplateItem(QModelIndex &index);
-    bool addTemplateItem(HostsListItem *item);
+    QModelIndex addTemplateItem(HostsListItem *item);
 
     QModelIndex moveTemplateItem(QModelIndex &index, bool isMoveUp);
 

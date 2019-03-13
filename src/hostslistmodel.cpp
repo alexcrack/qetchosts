@@ -95,7 +95,7 @@ bool HostsListModel::removeTemplateItem(QModelIndex &index)
     return true;
 }
 
-bool HostsListModel::addTemplateItem(HostsListItem *item)
+QModelIndex HostsListModel::addTemplateItem(HostsListItem *item)
 {
     item->added = QDateTime::currentDateTime();
 
@@ -105,7 +105,9 @@ bool HostsListModel::addTemplateItem(HostsListItem *item)
 
     endInsertRows();
 
-    return true;
+    QModelIndex index = this->index(hostItems->size() - 1, HostsListItem::Field::Name);
+
+    return index;
 }
 
 QModelIndex HostsListModel::moveTemplateItem(QModelIndex &index, bool isMoveUp)
