@@ -138,7 +138,7 @@ Qt::ItemFlags HostsListModel::flags(const QModelIndex &index) const
 
 void HostsListModel::parse()
 {
-    QFile hostsFile("/tmp/hosts");
+    QFile hostsFile(HOSTS_FILEPATH);
 
     QRegularExpression rStart("^##### EtcHosts ## Section: (.+) ## Added: (\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}) ## Description: (.+) #####");
     QRegularExpression rEnd("^##### END #####");
@@ -190,7 +190,7 @@ void HostsListModel::parse()
 
 bool HostsListModel::save()
 {
-    QFile hostsFile("/tmp/hosts");
+    QFile hostsFile(HOSTS_FILEPATH);
 
     if (hostsFile.open(QIODevice::WriteOnly)) {
         QTextStream out(&hostsFile);

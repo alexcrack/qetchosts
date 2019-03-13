@@ -11,6 +11,7 @@
 #include <QString>
 
 #include "hostslistitem.h"
+#include "consts.h"
 
 class HostsListModel : public QAbstractTableModel
 {
