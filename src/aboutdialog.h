@@ -2,6 +2,8 @@
 #define ABOUTDIALOG_H
 
 #include <QDialog>
+#include <QDesktopServices>
+#include <QUrl>
 #include "consts.h"
 
 namespace Ui {
@@ -15,6 +17,9 @@ class AboutDialog : public QDialog
 public:
     explicit AboutDialog(QWidget *parent = nullptr);
     ~AboutDialog();
+
+private slots:
+    void onLinkClicked(QString link);
 
 private:
     Ui::AboutDialog *ui;
