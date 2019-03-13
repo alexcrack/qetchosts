@@ -5,6 +5,7 @@
 #include <QDataWidgetMapper>
 #include <QItemSelection>
 #include <QSettings>
+#include <QSystemTrayIcon>
 
 #include "highlighter.h"
 #include "hostslistmodel.h"
@@ -47,7 +48,10 @@ private:
     HostsListModel *model;
     QDataWidgetMapper *hostsMapper;
 
+    QSystemTrayIcon *trayIcon;
+
     void setupWindow();
+    void setupTrayIcon();
     void setupTemplateListActions();
     void saveWindow();
     void setupEditor();

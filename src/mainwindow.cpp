@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     setupWindow();
+    setupTrayIcon();
     setupTemplateListActions();
     setupEditor();
     setupHosts();
@@ -43,6 +44,13 @@ void MainWindow::setupWindow()
     move(settings->value("pos", QPoint(10, 10)).toPoint());
     ui->splitter->restoreState(settings->value("splitter").toByteArray());
     settings->endGroup();
+}
+
+void MainWindow::setupTrayIcon()
+{
+    trayIcon = new QSystemTrayIcon(QIcon(":/toolbar/icons/icon.svg"));
+
+    trayIcon->show();
 }
 
 void MainWindow::setupTemplateListActions()
