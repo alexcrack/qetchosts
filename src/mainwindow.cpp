@@ -5,6 +5,7 @@
 #include "consts.h"
 #include "aboutdialog.h"
 #include "adddialog.h"
+#include "settingsdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -122,7 +123,9 @@ void MainWindow::on_actionAdd_Template_triggered()
     addDialog->setItem(newItem);
 
     if (addDialog->exec() == QDialog::Accepted) {
-        model->addTemplateItem(newItem);
+        QModelIndex index = model->addTemplateItem(newItem);
+
+        ui->hostGroupsListView->selectionModel()->setCurrentIndex(index, QItemSelectionModel::SelectCurrent);
     }
 }
 
