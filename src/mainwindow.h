@@ -6,6 +6,7 @@
 #include <QItemSelection>
 #include <QSettings>
 #include <QSystemTrayIcon>
+#include <QMenu>
 
 #include "highlighter.h"
 #include "hostslistmodel.h"
@@ -38,6 +39,10 @@ private slots:
 
     void on_actionRemove_Template_triggered();
 
+    void on_iconActivated(QSystemTrayIcon::ActivationReason reason);
+
+    void on_actionTray_Untray_triggered();
+
 private:
     Ui::MainWindow *ui;
 
@@ -49,6 +54,7 @@ private:
     QDataWidgetMapper *hostsMapper;
 
     QSystemTrayIcon *trayIcon;
+    QMenu *trayIconMenu;
 
     void setupWindow();
     void setupTrayIcon();

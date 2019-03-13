@@ -30,9 +30,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    saveWindow();
+    if (trayIcon->isVisible()) {
+        hide();
+        event->ignore();
+    } else {
+        saveWindow();
 
-    event->accept();
+        event->accept();
+    }
 }
 
 void MainWindow::setupWindow()
@@ -50,7 +55,16 @@ void MainWindow::setupTrayIcon()
 {
     trayIcon = new QSystemTrayIcon(QIcon(":/toolbar/icons/icon.svg"));
 
+    trayIconMenu = new QMenu(this);
+    trayIconMenu->addAction(ui->actionTray_Untray);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(ui->actionExit);
+
+    trayIcon->setContextMenu(trayIconMenu);
+
     trayIcon->show();
+
+    connect(trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::on_iconActivated);
 }
 
 void MainWindow::setupTemplateListActions()
@@ -69,6 +83,20 @@ void MainWindow::saveWindow()
     settings->setValue("pos", this->pos());
     settings->setValue("splitter", ui->splitter->saveState());
     settings->endGroup();
+}
+
+void MainWindow::on_iconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    switch (reason) {
+    case QSystemTrayIcon::Trigger:
+    case QSystemTrayIcon::DoubleClick:
+        show();
+        break;
+    case QSystemTrayIcon::MiddleClick:
+        break;
+    default:
+        ;
+    }
 }
 
 void MainWindow::setupEditor()
@@ -112,6 +140,7 @@ void MainWindow::on_action_Save_triggered()
 
 void MainWindow::on_actionExit_triggered()
 {
+    trayIcon->hide();
     close();
 }
 
@@ -160,4 +189,13 @@ void MainWindow::on_actionRemove_Template_triggered()
     QModelIndex index = ui->hostGroupsListView->selectionModel()->currentIndex();
 
     model->removeTemplateItem(index);
+}
+
+void MainWindow::on_actionTray_Untray_triggered()
+{
+    if (isVisible()) {
+        hide();
+    } else {
+        show();
+    }
 }

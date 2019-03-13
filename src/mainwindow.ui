@@ -265,6 +265,14 @@
     <string>Open setting window</string>
    </property>
   </action>
+  <action name="actionTray_Untray">
+   <property name="text">
+    <string>Tray / Untray</string>
+   </property>
+   <property name="toolTip">
+    <string>Tray / Untray application window</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
