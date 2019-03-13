@@ -9,7 +9,7 @@ AboutDialog::AboutDialog(QWidget *parent) :
 
     this->setFixedSize(this->size());
 
-    this->setWindowTitle(QString("%1 - v%2").arg(APP_NAME).arg(APP_VERSION));
+    this->setWindowTitle(QString("About %1 - v%2").arg(APP_NAME).arg(APP_VERSION));
 
     ui->lblName->setText(APP_NAME);
     ui->lblVersion->setText(QString("version %1").arg(APP_VERSION));
