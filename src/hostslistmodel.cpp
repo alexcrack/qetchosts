@@ -184,6 +184,10 @@ void HostsListModel::parse()
             }
         }
 
+        if (item->isCommon) {
+            hostItems->push_back(item);
+        }
+
         hostsFile.close();
     }
 }
