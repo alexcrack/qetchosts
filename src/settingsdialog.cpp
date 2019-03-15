@@ -12,3 +12,13 @@ SettingsDialog::~SettingsDialog()
 {
     delete ui;
 }
+
+void SettingsDialog::on_pushButton_3_clicked()
+{
+    close();
+}
+
+void SettingsDialog::on_pushButton_2_clicked()
+{
+    accept();
+}

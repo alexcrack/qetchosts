@@ -199,3 +199,20 @@ void MainWindow::on_actionTray_Untray_triggered()
         show();
     }
 }
+
+void MainWindow::on_actionSettings_triggered()
+{
+    SettingsDialog *settingsDialog = new SettingsDialog(this);
+
+    settingsDialog->show();
+}
+
+void MainWindow::on_actionAbout_Qt_triggered()
+{
+    QApplication::aboutQt();
+}
+
+void MainWindow::on_action_Help_triggered()
+{
+
+}

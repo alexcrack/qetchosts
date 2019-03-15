@@ -43,6 +43,12 @@ private slots:
 
     void on_actionTray_Untray_triggered();
 
+    void on_actionSettings_triggered();
+
+    void on_actionAbout_Qt_triggered();
+
+    void on_action_Help_triggered();
+
 private:
     Ui::MainWindow *ui;
 
