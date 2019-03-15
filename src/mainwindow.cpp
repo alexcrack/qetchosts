@@ -24,8 +24,12 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete settings;
     delete highlighter;
+    delete model;
     delete hostsMapper;
+    delete trayIcon;
+    delete trayIconMenu;
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
