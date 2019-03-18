@@ -8,7 +8,6 @@
 #include <QSystemTrayIcon>
 #include <QMenu>
 
-#include "highlighter.h"
 #include "hostslistmodel.h"
 
 namespace Ui {
@@ -53,8 +52,6 @@ private:
     Ui::MainWindow *ui;
 
     QSettings *settings;
-
-    Highlighter *highlighter;
 
     HostsListModel *model;
     QDataWidgetMapper *hostsMapper;

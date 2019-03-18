@@ -25,7 +25,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete settings;
-    delete highlighter;
     delete model;
     delete hostsMapper;
     delete trayIcon;
@@ -112,12 +111,6 @@ void MainWindow::setupEditor()
     settings->endGroup();
 
     ui->textEdit->setFont(font);
-
-//    QTextOption option;
-//    option.setFlags(QTextOption::ShowTabsAndSpaces);
-//    ui->textEdit->document()->setDefaultTextOption(option);
-
-    highlighter = new Highlighter(ui->textEdit->document());
 }
 
 void MainWindow::setupHosts()

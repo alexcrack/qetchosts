@@ -8,6 +8,7 @@
 #include <QTextBlock>
 #include <QWindow>
 
+#include "highlighter.h"
 
 class LineNumberArea;
 
@@ -32,6 +33,7 @@ private slots:
 
 private:
     QWidget *lineNumberArea;
+    Highlighter *highlighter;
 };
 
 

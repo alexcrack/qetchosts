@@ -4,6 +4,12 @@ CodeEditor::CodeEditor(QWidget *parent) : QPlainTextEdit(parent)
 {
     lineNumberArea = new LineNumberArea(this);
 
+    //    QTextOption option;
+    //    option.setFlags(QTextOption::ShowTabsAndSpaces);
+    //    ui->textEdit->document()->setDefaultTextOption(option);
+
+    highlighter = new Highlighter(document());
+
     connect(this, &CodeEditor::blockCountChanged, this, &CodeEditor::updateLineNumberAreaWidth);
     connect(this, &CodeEditor::updateRequest, this, &CodeEditor::updateLineNumberArea);
     connect(this, &CodeEditor::cursorPositionChanged, this, &CodeEditor::highlightCurrentLine);
