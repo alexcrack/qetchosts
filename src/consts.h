@@ -4,7 +4,7 @@
 #include <QString>
 
 const QString APP_NAME = "qEtcHosts";
-const QString APP_VERSION = "0.0.1";
+const QString APP_VERSION = "0.0.2";
 const QString APP_DEVELOPER = "Alexey Avramchik";
 const QString APP_DOMAIN = "https://alexcrack.github.io/qetchosts/";
 
