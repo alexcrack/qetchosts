@@ -83,7 +83,7 @@
         </size>
        </property>
       </widget>
-      <widget class="QTextEdit" name="textEdit"/>
+      <widget class="CodeEditor" name="textEdit"/>
      </widget>
     </item>
    </layout>
@@ -297,6 +297,13 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QTextEdit</extends>
+   <header>editor/codeeditor.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="icons.qrc"/>
  </resources>

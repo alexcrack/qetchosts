@@ -32,7 +32,8 @@ SOURCES += \
     hostslistitem.cpp \
     hostslistmodel.cpp \
     aboutdialog.cpp \
-    adddialog.cpp
+    adddialog.cpp \
+    editor/codeeditor.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,7 +43,8 @@ HEADERS += \
     hostslistmodel.h \
     consts.h \
     aboutdialog.h \
-    adddialog.h
+    adddialog.h \
+    editor/codeeditor.h
 
 FORMS += \
         mainwindow.ui \
