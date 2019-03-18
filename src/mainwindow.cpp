@@ -25,7 +25,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete settings;
-    delete highlighter;
     delete model;
     delete hostsMapper;
     delete trayIcon;
@@ -106,12 +105,12 @@ void MainWindow::on_iconActivated(QSystemTrayIcon::ActivationReason reason)
 void MainWindow::setupEditor()
 {
     QFont font;
-    font.setFamily("Courier");
-    font.setFixedPitch(true);
-    font.setPointSize(10);
+
+    settings->beginGroup("Editor");
+    font.fromString(settings->value("font", DEFAULT_FONT).toString());
+    settings->endGroup();
 
     ui->textEdit->setFont(font);
-    highlighter = new Highlighter(ui->textEdit->document());
 }
 
 void MainWindow::setupHosts()

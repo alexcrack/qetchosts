@@ -27,22 +27,24 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    highlighter.cpp \
     settingsdialog.cpp \
     hostslistitem.cpp \
     hostslistmodel.cpp \
     aboutdialog.cpp \
-    adddialog.cpp
+    adddialog.cpp \
+    editor/codeeditor.cpp \
+    editor/highlighter.cpp \
 
 HEADERS += \
         mainwindow.h \
-    highlighter.h \
     settingsdialog.h \
     hostslistitem.h \
     hostslistmodel.h \
     consts.h \
     aboutdialog.h \
-    adddialog.h
+    adddialog.h \
+    editor/codeeditor.h \
+    editor/highlighter.h \
 
 FORMS += \
         mainwindow.ui \
