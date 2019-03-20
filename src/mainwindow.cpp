@@ -9,10 +9,11 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    settings(new QSettings())
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    mwSettings = settings.getWindowSettings();
 
     setupWindow();
     setupTrayIcon();
@@ -24,7 +25,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete settings;
     delete model;
     delete hostsMapper;
     delete trayIcon;
@@ -33,7 +33,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    if (trayIcon->isVisible()) {
+    if (mwSettings.minimizeToTrayIcon && trayIcon->isVisible()) {
         hide();
         event->ignore();
     } else {
@@ -47,11 +47,9 @@ void MainWindow::setupWindow()
 {
     setWindowTitle(QString("%1 - v%2").arg(APP_NAME).arg(APP_VERSION));
 
-    settings->beginGroup("MainWindow");
-    resize(settings->value("size", QSize(1000, 500)).toSize());
-    move(settings->value("pos", QPoint(10, 10)).toPoint());
-    ui->splitter->restoreState(settings->value("splitter").toByteArray());
-    settings->endGroup();
+    resize(mwSettings.size);
+    move(mwSettings.pos);
+    ui->splitter->restoreState(mwSettings.splitter);
 }
 
 void MainWindow::setupTrayIcon()
@@ -65,7 +63,9 @@ void MainWindow::setupTrayIcon()
 
     trayIcon->setContextMenu(trayIconMenu);
 
-    trayIcon->show();
+    if (mwSettings.showTrayIcon) {
+        trayIcon->show();
+    }
 
     connect(trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::on_iconActivated);
 }
@@ -81,11 +81,11 @@ void MainWindow::setupTemplateListActions()
 
 void MainWindow::saveWindow()
 {
-    settings->beginGroup("MainWindow");
-    settings->setValue("size", this->size());
-    settings->setValue("pos", this->pos());
-    settings->setValue("splitter", ui->splitter->saveState());
-    settings->endGroup();
+    mwSettings.size = this->size();
+    mwSettings.pos = this->pos();
+    mwSettings.splitter = ui->splitter->saveState();
+
+    settings.setWindowSettings(mwSettings);
 }
 
 void MainWindow::on_iconActivated(QSystemTrayIcon::ActivationReason reason)
@@ -104,13 +104,7 @@ void MainWindow::on_iconActivated(QSystemTrayIcon::ActivationReason reason)
 
 void MainWindow::setupEditor()
 {
-    QFont font;
 
-    settings->beginGroup("Editor");
-    font.fromString(settings->value("font", DEFAULT_FONT).toString());
-    settings->endGroup();
-
-    ui->textEdit->setFont(font);
 }
 
 void MainWindow::setupHosts()
@@ -206,6 +200,18 @@ void MainWindow::on_actionTray_Untray_triggered()
 void MainWindow::on_actionSettings_triggered()
 {
     SettingsDialog *settingsDialog = new SettingsDialog(this);
+
+    connect(settingsDialog, &SettingsDialog::settingsChanged, this, [this]() {
+        mwSettings = settings.getWindowSettings();
+
+        if (mwSettings.showTrayIcon) {
+            trayIcon->show();
+        } else {
+            trayIcon->hide();
+        }
+    });
+
+    //connect(settingsDialog, &SettingsDialog::settingsChanged, ui->textEdit, &CodeEditor::setup);
 
     settingsDialog->show();
 }
