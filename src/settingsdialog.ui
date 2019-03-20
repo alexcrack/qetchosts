@@ -20,7 +20,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabGeneral">
       <attribute name="title">
@@ -28,21 +28,21 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QCheckBox" name="checkBox">
+        <widget class="QCheckBox" name="checkBoxMultipleInstances">
          <property name="text">
           <string>Allow multiple application instances</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_2">
+        <widget class="QCheckBox" name="checkBoxTrayIcon">
          <property name="text">
           <string>Show icon in system tray</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_3">
+        <widget class="QCheckBox" name="checkBoxMinimizeToTray">
          <property name="text">
           <string>Minimize to tray icon instead of termitating</string>
          </property>
@@ -85,7 +85,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinBox"/>
+          <widget class="QSpinBox" name="spinBoxFontSize"/>
          </item>
          <item>
           <spacer name="horizontalSpacer_2">
@@ -148,6 +148,9 @@
                <widget class="QPushButton" name="pushButton_5">
                 <property name="text">
                  <string/>
+                </property>
+                <property name="default">
+                 <bool>false</bool>
                 </property>
                 <property name="flat">
                  <bool>true</bool>
