@@ -2,6 +2,8 @@
 
 CodeEditor::CodeEditor(QWidget *parent) : QPlainTextEdit(parent)
 {
+    setEditor();
+
     lineNumberArea = new LineNumberArea(this);
 
     //    QTextOption option;
@@ -30,6 +32,15 @@ int CodeEditor::lineNumberAreaWidth()
     int space = 4 + fontMetrics().horizontalAdvance(QLatin1Char('9')) * digits;
 
     return space;
+}
+
+void CodeEditor::setEditor()
+{
+    Settings settings;
+
+    eSettings = settings.getEditorSettings();
+
+    setFont(eSettings.font);
 }
 
 void CodeEditor::updateLineNumberAreaWidth(int /* newBlockCount */)
