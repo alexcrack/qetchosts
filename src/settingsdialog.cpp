@@ -11,6 +11,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
     ui->checkBoxMultipleInstances->setChecked(mwSettings.multipleInstances);
     ui->checkBoxTrayIcon->setChecked(mwSettings.showTrayIcon);
+    ui->checkBoxMinimizeToTray->setEnabled(mwSettings.showTrayIcon);
     ui->checkBoxMinimizeToTray->setChecked(mwSettings.minimizeToTrayIcon);
 
     eSettings = settings.getEditorSettings();
@@ -62,10 +63,10 @@ void SettingsDialog::on_checkBoxMultipleInstances_stateChanged(int arg1)
 
 void SettingsDialog::on_checkBoxTrayIcon_stateChanged(int arg1)
 {
-    mwSettings.showTrayIcon = static_cast<bool>(arg1);
+    mwSettings.showTrayIcon = arg1 == Qt::Checked;
 
     if (!mwSettings.showTrayIcon) {
-        on_checkBoxMinimizeToTray_stateChanged(0);
+        ui->checkBoxMinimizeToTray->setChecked(false);
         ui->checkBoxMinimizeToTray->setEnabled(false);
     } else {
         ui->checkBoxMinimizeToTray->setEnabled(true);
@@ -74,7 +75,7 @@ void SettingsDialog::on_checkBoxTrayIcon_stateChanged(int arg1)
 
 void SettingsDialog::on_checkBoxMinimizeToTray_stateChanged(int arg1)
 {
-    mwSettings.minimizeToTrayIcon = static_cast<bool>(arg1);
+    mwSettings.minimizeToTrayIcon = arg1 == Qt::Checked;
 }
 
 void SettingsDialog::on_fontComboBox_currentFontChanged(const QFont &f)
