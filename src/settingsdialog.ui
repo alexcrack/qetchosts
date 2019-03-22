@@ -109,23 +109,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QListWidget" name="listWidget">
-            <item>
-             <property name="text">
-              <string>Address</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Hostname</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Comment</string>
-             </property>
-            </item>
-           </widget>
+           <widget class="QListWidget" name="listWidget"/>
           </item>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -145,7 +129,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_5">
+               <widget class="ColorButton" name="btnForeground">
                 <property name="text">
                  <string/>
                 </property>
@@ -153,7 +137,7 @@
                  <bool>false</bool>
                 </property>
                 <property name="flat">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -175,12 +159,12 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_6">
+               <widget class="ColorButton" name="btnBackground">
                 <property name="text">
                  <string/>
                 </property>
                 <property name="flat">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -189,7 +173,7 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QCheckBox" name="checkBox_4">
+               <widget class="QCheckBox" name="checkBoxBold">
                 <property name="font">
                  <font>
                   <weight>75</weight>
@@ -202,7 +186,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox_5">
+               <widget class="QCheckBox" name="checkBoxItalic">
                 <property name="font">
                  <font>
                   <italic>true</italic>
@@ -284,6 +268,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ColorButton</class>
+   <extends>QPushButton</extends>
+   <header>settings/colorbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

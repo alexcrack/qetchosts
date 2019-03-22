@@ -211,7 +211,7 @@ void MainWindow::on_actionSettings_triggered()
         }
     });
 
-    //connect(settingsDialog, &SettingsDialog::settingsChanged, ui->textEdit, &CodeEditor::setup);
+    connect(settingsDialog, &SettingsDialog::settingsChanged, ui->textEdit, &CodeEditor::setEditor);
 
     settingsDialog->show();
 }

@@ -34,7 +34,8 @@ SOURCES += \
     adddialog.cpp \
     editor/codeeditor.cpp \
     editor/highlighter.cpp \
-    settings.cpp
+    settings.cpp \
+    settings/colorbutton.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -46,7 +47,8 @@ HEADERS += \
     adddialog.h \
     editor/codeeditor.h \
     editor/highlighter.h \
-    settings.h
+    settings.h \
+    settings/colorbutton.h
 
 FORMS += \
         mainwindow.ui \

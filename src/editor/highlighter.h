@@ -5,26 +5,20 @@
 #include <QSyntaxHighlighter>
 #include <QRegularExpression>
 
+#include "settings.h"
+
 class Highlighter : public QSyntaxHighlighter
 {
 public:
     Highlighter(QTextDocument *parent = nullptr);
 
+    void loadSettings(Settings::EditorSettings eSettings);
+
 protected:
     void highlightBlock(const QString &text) override;
 
 private:
-    struct HighlightingRule
-    {
-        QRegularExpression pattern;
-        QTextCharFormat format;
-    };
-
-    QVector<HighlightingRule> highlightingRules;
-
-    QTextCharFormat singleLineCommentFormat;
-    QTextCharFormat ipv4Format;
-    QTextCharFormat ipv6Format;
+    QVector<Settings::HighlightingRule> highlightingRules;
 };
 
 #endif // HIGHLIGHTER_H
