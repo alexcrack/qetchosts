@@ -8,6 +8,8 @@
 #include <sys/types.h>
 
 #include "consts.h"
+#include "runguard.h"
+#include "settings.h"
 
 
 int main(int argc, char *argv[])
@@ -53,6 +55,14 @@ int main(int argc, char *argv[])
         };
 
         exit(0);
+    }
+
+    RunGuard guard("qEtcHosts_application123123");
+
+    Settings settings;
+
+    if (!settings.getWindowSettings().multipleInstances && !guard.tryToRun()) {
+        return 0;
     }
 
     MainWindow w;

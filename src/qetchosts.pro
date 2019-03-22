@@ -35,7 +35,8 @@ SOURCES += \
     editor/codeeditor.cpp \
     editor/highlighter.cpp \
     settings.cpp \
-    settings/colorbutton.cpp
+    settings/colorbutton.cpp \
+    runguard.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -48,7 +49,8 @@ HEADERS += \
     editor/codeeditor.h \
     editor/highlighter.h \
     settings.h \
-    settings/colorbutton.h
+    settings/colorbutton.h \
+    runguard.h
 
 FORMS += \
         mainwindow.ui \
