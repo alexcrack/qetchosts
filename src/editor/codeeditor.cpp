@@ -4,11 +4,9 @@ CodeEditor::CodeEditor(QWidget *parent) : QPlainTextEdit(parent)
 {
     lineNumberArea = new LineNumberArea(this);
 
-    //    QTextOption option;
-    //    option.setFlags(QTextOption::ShowTabsAndSpaces);
-    //    ui->textEdit->document()->setDefaultTextOption(option);
-
     highlighter = new Highlighter(document());
+
+    setEditor();
 
     connect(this, &CodeEditor::blockCountChanged, this, &CodeEditor::updateLineNumberAreaWidth);
     connect(this, &CodeEditor::updateRequest, this, &CodeEditor::updateLineNumberArea);
@@ -30,6 +28,23 @@ int CodeEditor::lineNumberAreaWidth()
     int space = 4 + fontMetrics().horizontalAdvance(QLatin1Char('9')) * digits;
 
     return space;
+}
+
+void CodeEditor::setEditor()
+{
+    Settings settings;
+
+    eSettings = settings.getEditorSettings();
+
+    setFont(eSettings.font);
+
+    QTextOption option;
+    //option.setFlags(QTextOption::ShowTabsAndSpaces);
+    document()->setDefaultTextOption(option);
+
+    // Highlighter
+    highlighter->loadSettings(eSettings);
+
 }
 
 void CodeEditor::updateLineNumberAreaWidth(int /* newBlockCount */)

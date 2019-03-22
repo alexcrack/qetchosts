@@ -9,6 +9,7 @@
 #include <QWindow>
 
 #include "highlighter.h"
+#include "settings.h"
 
 class LineNumberArea;
 
@@ -23,6 +24,8 @@ public:
     void lineNumberAreaPaintEvent(QPaintEvent *event);
     int lineNumberAreaWidth();
 
+    void setEditor();
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
 
@@ -34,6 +37,9 @@ private slots:
 private:
     QWidget *lineNumberArea;
     Highlighter *highlighter;
+
+    Settings settings;
+    Settings::EditorSettings eSettings;
 };
 
 

@@ -4,10 +4,10 @@
 #include <QMainWindow>
 #include <QDataWidgetMapper>
 #include <QItemSelection>
-#include <QSettings>
 #include <QSystemTrayIcon>
 #include <QMenu>
 
+#include "settings.h"
 #include "hostslistmodel.h"
 
 namespace Ui {
@@ -51,7 +51,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    QSettings *settings;
+    Settings settings;
+    Settings::MainWindowSettings mwSettings;
 
     HostsListModel *model;
     QDataWidgetMapper *hostsMapper;
