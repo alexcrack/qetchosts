@@ -6,6 +6,8 @@
 #include <QPoint>
 #include <QByteArray>
 #include <QFont>
+#include <QTextCharFormat>
+#include <QRegularExpression>
 
 class Settings
 {
@@ -19,9 +21,16 @@ public:
         bool minimizeToTrayIcon;
     } MainWindowSettings;
 
+    typedef struct
+    {
+        QString name;
+        QRegularExpression pattern;
+        QTextCharFormat format;
+    } HighlightingRule;
+
     typedef struct {
         QFont font;
-        int fontSize;
+        QVector<HighlightingRule> highlights;
     } EditorSettings;
 
     Settings();
