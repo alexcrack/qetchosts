@@ -1,0 +1,8 @@
+---
+layout: default
+img: add.png
+category: Features
+title: Add hosts templates
+description: |
+---
+  Add your own hosts list with named item with description

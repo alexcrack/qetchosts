@@ -1,0 +1,8 @@
+---
+layout: default
+img: edit.png
+category: Features
+title: Edit hosts
+description: |
+---
+  Edit hosts in a comfortable way with powerfull editor with syntax higlighting.

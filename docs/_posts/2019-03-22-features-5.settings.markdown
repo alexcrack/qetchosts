@@ -1,0 +1,8 @@
+---
+layout: default
+img: settings.png
+category: Features
+title: Settings
+description: |
+---
+  You can customize syntax higlighting, show/hide tray icon and prevent multiple instances of application.

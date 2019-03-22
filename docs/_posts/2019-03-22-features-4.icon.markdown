@@ -1,0 +1,8 @@
+---
+layout: default
+img: icon.png
+category: Features
+title: Tray icon
+description: |
+---
+  Tray icon allows to control running application.

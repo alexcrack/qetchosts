@@ -1,0 +1,8 @@
+---
+layout: default
+img: move.png
+category: Features
+title: Prioritize templates
+description: |
+---
+  You can prefer one hosts list by another simply from context menu or with toolbar buttons.
