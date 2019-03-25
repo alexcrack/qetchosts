@@ -1,4 +1,4 @@
-name: q-etc-hosts
+name: qetchosts
 version: "0.2.0"
 summary: "qEtcHosts"
 description: "Simple GUI editor for /etc/hosts file with templates and syntax highlighting"
