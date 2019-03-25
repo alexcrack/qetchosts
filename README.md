@@ -1,5 +1,7 @@
 # qEtcEdit hosts file GUI Editor
 
+[![Snap Status](https://build.snapcraft.io/badge/alexcrack/qetchosts.svg)](https://build.snapcraft.io/user/alexcrack/qetchosts)
+
 qEtcEdit is a simple tool for edit hosts-file in a comfortable way
 
 ![Screenshot](https://raw.githubusercontent.com/alexcrack/qetchosts/master/docs/img/screenshot_mainwindow.png)
