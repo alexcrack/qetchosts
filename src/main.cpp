@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QCommandLineParser>
 
+#include <iostream>
 #include <unistd.h>
 #include <sys/types.h>
 
@@ -57,11 +58,15 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
-    RunGuard guard("qEtcHosts_application123123");
+    QString mSharedKey = "qEtcHosts_application123123";
+    RunGuard guard(mSharedKey);
 
     Settings settings;
 
     if (!settings.getWindowSettings().multipleInstances && !guard.tryToRun()) {
+        std::cout << "Another instance of application has already running." << std::endl;
+        std::cout << "Application shared memory key: " << mSharedKey.toStdString() << std::endl << "Exit..." << std::endl;
+
         return 0;
     }
 
