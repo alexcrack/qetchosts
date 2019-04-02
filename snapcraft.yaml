@@ -21,53 +21,53 @@ parts:
         qt-version: qt5
         project-files:
             - qetchosts.pro
-        after:
-            - qt
+        #after:
+            #- qt
 
-    qt:
-        plugin: qtbuilder
-        qt-version: 5.12.0
-        qt-source-git: https://code.qt.io/qt/qt5.git
-        qt-submodules: ['qtbase', 'qtimageformats']
-        build-packages:
-          - libasound2-dev
-          - libdbusmenu-glib-dev
-          - libffi-dev
-          - liblzma-dev
-          - libpulse-dev
-          - libssl-dev
-          - libx11-xcb-dev
-          - libxcb-icccm4-dev
-          - libxcb-image0-dev
-          - libxcb-keysyms1-dev
-          - libxcb-randr0-dev
-          - libxcb-render-util0-dev
-          - libxcb-sync-dev
-          - libxcb-util0-dev
-          - libxcb-xfixes0-dev
-          - libxcb1-dev
-          - libxrender-dev
-        configflags:
-          - -prefix
-          - $SNAPCRAFT_STAGE
-          - -release
-          - -force-debug-info
-          - -opensource
-          - -confirm-license
-          - -qt-zlib
-          - -qt-libpng
-          - -qt-libjpeg
-          - -qt-freetype
-          - -qt-harfbuzz
-          - -qt-pcre
-          - -qt-xcb
-          - -qt-xkbcommon-x11
-          - -no-opengl
-          - -static
-          - -openssl-linked
-          - -no-mirclient
-          - -nomake
-          - examples
-          - -nomake
-          - tests
-        prime: [-./*]
+    #qt:
+        #plugin: qtbuilder
+        #qt-version: 5.12.0
+        #qt-source-git: https://code.qt.io/qt/qt5.git
+        #qt-submodules: ['qtbase', 'qtimageformats']
+        #build-packages:
+          #- libasound2-dev
+          #- libdbusmenu-glib-dev
+          #- libffi-dev
+          #- liblzma-dev
+          #- libpulse-dev
+          #- libssl-dev
+          #- libx11-xcb-dev
+          #- libxcb-icccm4-dev
+          #- libxcb-image0-dev
+          #- libxcb-keysyms1-dev
+          #- libxcb-randr0-dev
+          #- libxcb-render-util0-dev
+          #- libxcb-sync-dev
+          #- libxcb-util0-dev
+          #- libxcb-xfixes0-dev
+          #- libxcb1-dev
+          #- libxrender-dev
+        #configflags:
+          #- -prefix
+          #- $SNAPCRAFT_STAGE
+          #- -release
+          #- -force-debug-info
+          #- -opensource
+          #- -confirm-license
+          #- -qt-zlib
+          #- -qt-libpng
+          #- -qt-libjpeg
+          #- -qt-freetype
+          #- -qt-harfbuzz
+          #- -qt-pcre
+          #- -qt-xcb
+          #- -qt-xkbcommon-x11
+          #- -no-opengl
+          #- -static
+          #- -openssl-linked
+          #- -no-mirclient
+          #- -nomake
+          #- examples
+          #- -nomake
+          #- tests
+        #prime: [-./*]
